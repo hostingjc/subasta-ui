@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/subasta-ui/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/subasta-ui/static/js/main.2c3dc460.chunk.js",
-    "main.js.map": "/subasta-ui/static/js/main.2c3dc460.chunk.js.map",
+    "main.js": "/subasta-ui/static/js/main.f87762da.chunk.js",
+    "main.js.map": "/subasta-ui/static/js/main.f87762da.chunk.js.map",
     "runtime-main.js": "/subasta-ui/static/js/runtime-main.da6cfa39.js",
     "runtime-main.js.map": "/subasta-ui/static/js/runtime-main.da6cfa39.js.map",
     "static/js/2.a015d6c8.chunk.js": "/subasta-ui/static/js/2.a015d6c8.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.da6cfa39.js",
     "static/js/2.a015d6c8.chunk.js",
     "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.2c3dc460.chunk.js"
+    "static/js/main.f87762da.chunk.js"
   ]
 }
