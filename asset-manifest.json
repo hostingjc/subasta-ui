@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/subasta-ui/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/subasta-ui/static/js/main.2c3dc460.chunk.js",
+    "main.js.map": "/subasta-ui/static/js/main.2c3dc460.chunk.js.map",
+    "runtime-main.js": "/subasta-ui/static/js/runtime-main.da6cfa39.js",
+    "runtime-main.js.map": "/subasta-ui/static/js/runtime-main.da6cfa39.js.map",
+    "static/js/2.a015d6c8.chunk.js": "/subasta-ui/static/js/2.a015d6c8.chunk.js",
+    "static/js/2.a015d6c8.chunk.js.map": "/subasta-ui/static/js/2.a015d6c8.chunk.js.map",
+    "static/js/3.eb2e717a.chunk.js": "/subasta-ui/static/js/3.eb2e717a.chunk.js",
+    "static/js/3.eb2e717a.chunk.js.map": "/subasta-ui/static/js/3.eb2e717a.chunk.js.map",
+    "index.html": "/subasta-ui/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/subasta-ui/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.a015d6c8.chunk.js.LICENSE.txt": "/subasta-ui/static/js/2.a015d6c8.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/subasta-ui/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.da6cfa39.js",
+    "static/js/2.a015d6c8.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.2c3dc460.chunk.js"
+  ]
+}
