@@ -19,7 +19,12 @@ import ProfilePage from "../pages/ProfilePage";
 import RegisterPage from "../pages/RegisterPage";
 import CategoriesRouter from "./CategoriesRouter";
 
+
 export default function AppRouter() {
+
+
+
+
   return (
     <Router>
       <Navbar />
@@ -44,11 +49,17 @@ export default function AppRouter() {
         <PrivateRoute exact path="/payments" component={PaymentsPage} />
 
         <Route path="/404" component={NotFoundPage} />
+      
         <Route path="*">
           <Redirect to="/404" />
         </Route>
       </Switch>
+      
+
     </Router>
+
+
+
   );
 }
 
