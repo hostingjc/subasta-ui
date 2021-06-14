@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AAAA,QACI,wBAAyB,CACzB,UACJ","file":"main.18c3d675.chunk.css","sourcesContent":[".active {\r\n    background-color: crimson;\r\n    color: white;\r\n}"]}
