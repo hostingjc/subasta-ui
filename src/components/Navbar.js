@@ -61,15 +61,45 @@ export default function Navbar() {
 <NavLink to="/categories" activeClassName="active">
 <span>         Categories </span>
           </NavLink></li>
-<li id="menu-item-227" className="menu-item menu-item-type-post_type menu-item-object-page">
-<NavLink to="/categories" activeClassName="active">
-<span>   Categories</span>
-          </NavLink></li>
-<li id="menu-item-96" className="menu-item menu-item-type-post_type menu-item-object-page">
-<NavLink to="/categories" activeClassName="active">
-<span>    Categories </span>
-          </NavLink>
-  </li>
+
+          {!auth.isLogged() && (
+          <>
+           <li id="menu-item-227" className="menu-item menu-item-type-post_type menu-item-object-page">
+              <NavLink exact to="/login" activeClassName="active">
+              <span>Login</span>
+              </NavLink>
+            </li>
+            <li id="menu-item-96" className="menu-item menu-item-type-post_type menu-item-object-page">
+              <NavLink exact to="/register" activeClassName="active">
+              <span>Register</span>
+              </NavLink>
+            </li>
+          </>
+        )}
+
+         {auth.isLogged() && (
+          <>
+            <li id="menu-item-96" className="menu-item menu-item-type-post_type menu-item-object-page">
+              <NavLink exact to="/dashboard" activeClassName="active">
+              <span>Dashboard</span> 
+              </NavLink>
+            </li>
+            <li id="menu-item-96" className="menu-item menu-item-type-post_type menu-item-object-page">
+              <NavLink exact to="/payments" activeClassName="active">
+              <span>Payments</span> 
+              </NavLink>
+            </li>
+            <li id="menu-item-98" className="menu-item menu-item-type-post_type menu-item-object-page">
+            <NavLink  exact to="#" activeClassName="active">
+             <span onClick={auth.logout}>Salir</span> 
+             </NavLink>
+            </li>
+          </>
+        )}
+    
+
+
+
 </ul>
 
 </nav>
