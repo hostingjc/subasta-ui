@@ -26,7 +26,7 @@ const AuthProvider = ({ children }) => {
       axios.post('login', data).then(
         (response) => {  
           console.log(response.data.user)
-          setUser(response.data.token)
+          setUser(response.data.user)
           
           //  localStorage.setItem('token', response.data.token);
             //  this.setState({loggedIn: true})

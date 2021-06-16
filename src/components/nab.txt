@@ -24,6 +24,8 @@
             Categories
           </NavLink>
         </li>
+
+        
         {!auth.isLogged() && (
           <>
             <li>
