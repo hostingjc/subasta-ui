@@ -8,7 +8,13 @@ const useRegister = (data) =>{
    return axios.post('register', data);
 }
 
-ServiceUser.useRegister = useRegister;
+const useForgot = (data) => {
+   return axios.post('forgot', data);
+}
 
+
+
+ServiceUser.useRegister = useRegister;
+ServiceUser.useForgot = useForgot;
 
 export default ServiceUser;

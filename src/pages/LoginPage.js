@@ -1,7 +1,10 @@
 
 import { useState } from 'react';
+import { NavLink } from "react-router-dom";
 import { useHistory, useLocation } from 'react-router-dom';
 import useAuth from "../auth/useAuth";
+import './../assets/login.css';
+
 
 export default function LoginPage() {
     const history = useHistory();
@@ -86,9 +89,15 @@ export default function LoginPage() {
                <button className="btn btn-primary" type="submit">Login</button>
          </div>
 
-        
+       
 
-     
+         <div class="forgot">
+         <p className="">
+                    <NavLink to={'/forgot'}>Forgot password</NavLink>
+         </p>
+         </div>
+
+ 
 </form>
   </div>
 </div>

@@ -17,6 +17,8 @@ import NotFoundPage from "../pages/NotFoundPage";
 import PaymentsPage from "../pages/PaymentsPage";
 import ProfilePage from "../pages/ProfilePage";
 import RegisterPage from "../pages/RegisterPage";
+import ForgotPage from "../pages/ForgotPage";
+import ResetPage from "../pages/ResetPage";
 import CategoriesRouter from "./CategoriesRouter";
 import AvisoRevisionPage from "../pages/AvisoRevisionPage";
 import AuthVerify from '../components/AuthVerify.component';
@@ -42,6 +44,8 @@ export default function AppRouter() {
           <Redirect to="/login" />
         </Route>
 
+      <PublicRoute exact path="/forgot" component={ForgotPage}/>
+      <PublicRoute exact path="/reset" component={ResetPage}/>
 
 
       <PublicRoute exact path="/revision" component={AvisoRevisionPage} />

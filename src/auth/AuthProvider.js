@@ -1,6 +1,12 @@
 import axios from "axios";
 import { createContext, useState, useEffect } from "react";
 
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+
+const MySwal = withReactContent(Swal);
+
 
 export const AuthContext = createContext();
 
@@ -36,8 +42,47 @@ const AuthProvider = ({ children }) => {
       
       }
       ).catch(error => {
+
+        if(error.response.data.msg){
+
+          MySwal.fire({
+              type : 'error',
+              title : error.response.data.msg,
+              icon: 'error',
+              timer: 3000,
+              timerProgressBar: true,
+              showConfirmButton: false, 
+            });
+
+
+       }else if(error.response.data.error.email || error.response.data.error.password){
+
+        MySwal.fire({
+          type : 'error',
+          title : <ul>
+          <li>{error.response.data.error.email}</li>
+          <li>{error.response.data.error.password}</li>
+        </ul>,
+          icon: 'error',
+          timer: 3000,
+          width: 600,
+          timerProgressBar: true,
+          showConfirmButton: false, 
+        });
+
+       }
+
+      
+
+
+
+
+
+        console.log(error.response.data.msg);
         
-          console.log(error)
+          console.log(error.response.data.error);
+
+
       })
 
   

@@ -3,6 +3,13 @@ import { useHistory, useLocation } from 'react-router-dom';
 import userService from '../services/user.service';
 import SubHeader from '../components/SubHeader';
 
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+import './../assets/register.css';
+
+const MySwal = withReactContent(Swal);
+
+
 export default function RegisterPage() {
 
   
@@ -18,11 +25,7 @@ export default function RegisterPage() {
         confirm_password:''
     })
 
-    const [error, setError] = useState(null);
  
-
-
-
     
 
     const handleInputChange = (event) => {
@@ -35,26 +38,7 @@ export default function RegisterPage() {
     }
 
 
-    const mostrarErrores = (error) => {
 
-        let mensaje = (
-            <div className="alert alert-danger" role="alert">
-                <ul>
-            <li>{error.name}</li>
-            <li>{error.email}</li>
-            <li>{error.password}</li>
-            <li>{error.confirm_password}</li>            
-                     </ul>
-                </div>
-       )
-
-
- 
-
-        return mensaje;
-
-
-    }
 
 
 
@@ -62,7 +46,6 @@ export default function RegisterPage() {
     const handleLogin = (event) => {
         event.preventDefault();
 
-        console.log('enviando datos...' + datos.email + ' ' + datos.password)
         const data = {
             name: datos.name,
             email: datos.email,
@@ -80,8 +63,25 @@ export default function RegisterPage() {
 
            
         error => {
+         
 
-            setError(mostrarErrores(error.response.data.error));
+            MySwal.fire({
+                type : 'error',
+                title : <ul>  <li>{error.response.data.error.name}</li>
+                <li>{error.response.data.error.email}</li>
+                <li>{error.response.data.error.password}</li>
+                <li>{error.response.data.error.confirm_password}</li>  </ul>,
+                icon: 'error',
+                timer: 3000,
+                width: 600,
+                timerProgressBar: true,
+                showConfirmButton: false, 
+              });
+
+              
+
+
+
   
         }
     )
@@ -112,7 +112,7 @@ export default function RegisterPage() {
     <div className="card">
   <div className="card-body">
  
-  {error}
+ 
 
   <form onSubmit={handleLogin} className="needs-validation" novalidate> 
       

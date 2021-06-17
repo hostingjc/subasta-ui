@@ -19,19 +19,21 @@ const AuthVerify = ({ history }) => {
 
 
         MySwal.fire({
-          title: <p>Hello World</p>,
-          footer: 'Copyright 2018',
+          title: <p>Cerrando Session</p>,
+          footer: 'Copyright 2021',
+          timer: 60000,
+          icon: 'warning',
+          showCancelButton: false, 
+          showConfirmButton: false,
           didOpen: () => {
             // `MySwal` is a subclass of `Swal`
             //   with all the same instance & static methods
-            MySwal.clickConfirm(
-              window.location.replace("/dashboard")
-
-            )
-
+            //MySwal.clickConfirm()
+            window.location.replace("/dashboard")
           }
         }).then(() => {
-          return MySwal.fire(<p>Shorthand works too</p>)
+         
+          return MySwal.fire(<p>Cerrando Session</p>)
         })
      
       
