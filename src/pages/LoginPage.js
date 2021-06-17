@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import useAuth from "../auth/useAuth";
@@ -41,6 +42,8 @@ export default function LoginPage() {
             password: datos.password
         }
 
+   
+
         auth.login(data);
         history.push(previusObjectURL || "/dashboard")
     }
@@ -50,15 +53,22 @@ export default function LoginPage() {
    
     return (
 
+
+        <div class="container mt-3">
+  <div class="row">
+    <div class="col-4 offset-4 justify-content-md-center">
+
+    <div class="card">
+  <div class="card-body">
+  <form onSubmit={handleLogin} >
       
-        <form onSubmit={handleLogin} >
         <h1>Login</h1>
 
            
         
-         <div className="mb-3">
+         <div className="mb-4 ">
                <label>Email</label>
-               <input type="email" className="form-control" placeholder="Email"
+               <input type="email" className="form-control form-control-lg" placeholder="Email"
               onChange={ handleInputChange }  
               name="email"
               
@@ -80,7 +90,18 @@ export default function LoginPage() {
 
      
 </form>
+  </div>
+</div>
 
+   
+
+    </div>
+</div>
+
+</div>
+
+      
+       
 
 
 

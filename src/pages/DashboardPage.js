@@ -1,15 +1,20 @@
+
 import useAuth from "../auth/useAuth";
 
 export default function DashboardPage() {
 
     const auth = useAuth();
+  
 
 
     
     return (
+
+            
+
         <div>
             <h1>DashboardPage</h1>
-
+            {auth.verifyAuth()}
 
             {auth.isLogged() && (
           <>

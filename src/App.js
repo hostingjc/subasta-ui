@@ -4,7 +4,7 @@ import useScript from "./hooks/useScript";
 
 import AppRouter from "./routers/AppRouter";
 
-
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import './assets/wp-content/plugins/LayerSlider/static/layerslider/css/layerslider2cfc.css';
 import './assets/wp-includes/css/dist/block-library/style.minfb16.css?ver=5.2.11';
@@ -23,16 +23,29 @@ import './assets/style1.css';
 import { useEffect } from "react";
 
 
+
+
+
 function App() {
 
+ 
+
+ 
+
   useEffect(() => {
+
     document.body.className = 'page-template page-template-template-portfolio page-template-template-portfolio-php page page-id-39  color-custom style-default button-flat layout-full-width if-zoom if-border-hide hide-love no-shadows header-classic header-fw header-boxed minimalist-header-no sticky-header sticky-tb-color ab-hide subheader-both-center menu-link-color menuo-right menuo-no-borders mobile-tb-hide mobile-mini-mr-ll tablet-sticky mobile-sticky be-reg-20951 wpb-js-composer js-comp-ver-6.0.2 vc_responsive';
     return () => { document.body.className = ''; }
   });
 
+
+  
+
+  
+
   return (
     
-      <AuthProvider>
+    <AuthProvider>
         <AppRouter />        
       </AuthProvider>
  

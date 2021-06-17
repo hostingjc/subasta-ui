@@ -1,4 +1,5 @@
 import useAuth from "../auth/useAuth"
+import SubHeader from "../components/SubHeader";
 
 export default function ContactPage() {
 
@@ -7,8 +8,8 @@ export default function ContactPage() {
 
     return (
         <div>
-            <h1>ContactPage</h1> 
 
+            <SubHeader title={'ContactPage'}/>
 
 
             {auth.isLogged() && (

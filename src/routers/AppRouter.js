@@ -18,18 +18,19 @@ import PaymentsPage from "../pages/PaymentsPage";
 import ProfilePage from "../pages/ProfilePage";
 import RegisterPage from "../pages/RegisterPage";
 import CategoriesRouter from "./CategoriesRouter";
+import AvisoRevisionPage from "../pages/AvisoRevisionPage";
+import AuthVerify from '../components/AuthVerify.component';
 
 
 export default function AppRouter() {
 
 
-
-
   return (
     <Router>
       <Navbar />
-      <Switch>
-        <Route exact path="/about" component={AboutPage} />
+      <Switch >
+
+        <Route exact path="/about"  component={AboutPage} />
         <Route exact path="/contact" component={ContactPage} />
         <Route exact path="/" component={HomePage} />
 
@@ -41,6 +42,9 @@ export default function AppRouter() {
           <Redirect to="/login" />
         </Route>
 
+
+
+      <PublicRoute exact path="/revision" component={AvisoRevisionPage} />
         <PublicRoute exact path="/login" component={LoginPage} />
         <PublicRoute exact path="/register" component={RegisterPage} />
 
@@ -53,10 +57,13 @@ export default function AppRouter() {
         <Route path="*">
           <Redirect to="/404" />
         </Route>
-      </Switch>
-      
 
+        
+      </Switch>
+     <AuthVerify/>  
+   
     </Router>
+
 
 
 

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createContext, useState, useEffect } from "react";
 
+
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
@@ -25,9 +26,10 @@ const AuthProvider = ({ children }) => {
 
       axios.post('login', data).then(
         (response) => {  
-          console.log(response.data.user)
+          //console.log(response.data.user)
+          //console.log(response.data.token)
           setUser(response.data.user)
-          
+          localStorage.setItem('token', response.data.token);
           //  localStorage.setItem('token', response.data.token);
             //  this.setState({loggedIn: true})
             //  this.props.setUser(response.data.user);
@@ -45,9 +47,35 @@ const AuthProvider = ({ children }) => {
     },
     logout() {
       setUser(null);
+      localStorage.removeItem("token");
     },
     isLogged() {
       return !!user;
+    },
+    verifyAuth(){
+      
+      if(localStorage.getItem('token')){
+
+        axios.post('test', {headers: { 'Authorization' : 'Bearer '+ localStorage.getItem('token')}}).then(
+          res => {
+            //setUser(user);
+            console.log(res.data)
+          }
+          ).catch(err => {
+            console.log(err)
+            //localStorage.removeItem("token");
+            //setUser(null);
+
+          })
+
+      }else{
+
+          console.log('No esta autenticado');
+
+      }
+
+
+
     },
   };
 
