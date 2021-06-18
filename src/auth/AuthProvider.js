@@ -28,9 +28,9 @@ const AuthProvider = ({ children }) => {
 
   const contextValue = {
     user,
-    login(data) {
+    async login(data) {
 
-      axios.post('login', data).then(
+      await axios.post('login', data).then(
         (response) => {  
           //console.log(response.data.user)
           //console.log(response.data.token)
@@ -43,7 +43,20 @@ const AuthProvider = ({ children }) => {
       }
       ).catch(error => {
 
-        if(error.response.data.msg){
+        
+
+        if(error.response === undefined){
+
+          MySwal.fire({
+            type : 'error',
+            title : 'Problemas en el Servidor',
+            icon: 'error',
+            timer: 3000,
+            timerProgressBar: true,
+            showConfirmButton: false, 
+          });
+
+        }else if(error.response.data.msg){
 
           MySwal.fire({
               type : 'error',
@@ -65,7 +78,7 @@ const AuthProvider = ({ children }) => {
         </ul>,
           icon: 'error',
           timer: 3000,
-          width: 600,
+          width: 400,
           timerProgressBar: true,
           showConfirmButton: false, 
         });
@@ -78,9 +91,7 @@ const AuthProvider = ({ children }) => {
 
 
 
-        console.log(error.response.data.msg);
-        
-          console.log(error.response.data.error);
+ 
 
 
       })

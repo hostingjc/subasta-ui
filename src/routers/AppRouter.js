@@ -21,6 +21,7 @@ import ForgotPage from "../pages/ForgotPage";
 import ResetPage from "../pages/ResetPage";
 import CategoriesRouter from "./CategoriesRouter";
 import AvisoRevisionPage from "../pages/AvisoRevisionPage";
+import AvisoEmailResetPage from "../pages/AvisoEmailResetPage";
 import AuthVerify from '../components/AuthVerify.component';
 
 
@@ -45,9 +46,9 @@ export default function AppRouter() {
         </Route>
 
       <PublicRoute exact path="/forgot" component={ForgotPage}/>
-      <PublicRoute exact path="/reset" component={ResetPage}/>
+      <PublicRoute exact path="/reset/:token" component={ResetPage}/>
 
-
+      <PublicRoute exact path="/email-reset" component={AvisoEmailResetPage} />
       <PublicRoute exact path="/revision" component={AvisoRevisionPage} />
         <PublicRoute exact path="/login" component={LoginPage} />
         <PublicRoute exact path="/register" component={RegisterPage} />

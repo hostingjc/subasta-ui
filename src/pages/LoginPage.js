@@ -4,6 +4,11 @@ import { NavLink } from "react-router-dom";
 import { useHistory, useLocation } from 'react-router-dom';
 import useAuth from "../auth/useAuth";
 import './../assets/login.css';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+
+const MySwal = withReactContent(Swal);
 
 
 export default function LoginPage() {
@@ -39,6 +44,16 @@ export default function LoginPage() {
     const handleLogin = (event) => {
         event.preventDefault();
 
+        MySwal.fire({
+            type : 'error',
+            title : 'Ingresando',
+            icon: 'info',
+            timer: 10000,
+            timerProgressBar: true,
+            showConfirmButton: false, 
+          });
+
+
         console.log('enviando datos...' + datos.email + ' ' + datos.password)
         const data = {
             email: datos.email,
@@ -57,12 +72,12 @@ export default function LoginPage() {
     return (
 
 
-        <div class="container mt-3">
-  <div class="row">
-    <div class="col-4 offset-4 justify-content-md-center">
+        <div className="container mt-3">
+  <div className="row">
+    <div className="col-4 offset-4 justify-content-md-center">
 
-    <div class="card">
-  <div class="card-body">
+    <div className="card">
+  <div className="card-body">
   <form onSubmit={handleLogin} >
       
         <h1>Login</h1>
@@ -86,14 +101,14 @@ export default function LoginPage() {
 
 
          <div className="d-grid gap-2">
-               <button className="btn btn-primary" type="submit">Login</button>
+               <button className="btn btn-primary" type="submit">Ingresar</button>
          </div>
 
        
 
          <div class="forgot">
          <p className="">
-                    <NavLink to={'/forgot'}>Forgot password</NavLink>
+                    <NavLink to={'/forgot'}>Olvide Contraseña</NavLink>
          </p>
          </div>
 

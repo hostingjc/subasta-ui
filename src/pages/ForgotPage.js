@@ -48,14 +48,29 @@ export default function ForgotPage(){
     const handleForgot = (event) => {
         event.preventDefault();
 
+        MySwal.fire({
+            type : 'error',
+            title : 'Enviando Email',
+            icon: 'info',
+            timer: 1000,
+            timerProgressBar: true,
+            showConfirmButton: false, 
+          });
+
         const data = {
             email: datos.email,
         }
+
+      
  
         serviceUser.useForgot(data).then(
-            res => {
-                console.log(res);
 
+          
+            res => {
+                history.push(previusObjectURL || "/email-reset");
+                console.log(res);
+                
+               
             }
           
 
@@ -91,18 +106,11 @@ export default function ForgotPage(){
             console.log(err.response.data.email);
 
             console.log(err.response.data.message)
-            //mytoast("error",err.response.data.message);  
-
-
-          
-
-
-            //setError(mostrarErrores(err.response.data.message));
+     
           
         }
         );
 
-       // history.push(previusObjectURL || "/dashboard")
     }
 
 
@@ -111,12 +119,12 @@ export default function ForgotPage(){
 
         <SubHeader title={'Olvide mi Contraseña'}/>
 
-        <div class="container mt-3">
-  <div class="row">
-    <div class="col-4 offset-4 justify-content-md-center">
+        <div className="container mt-3 my-5">
+  <div className="row">
+    <div className="col-4 offset-4 justify-content-md-center">
 
-    <div class="card">
-  <div class="card-body">
+    <div className="card">
+  <div className="card-body">
 
 {error}
   <form onSubmit={handleForgot} >

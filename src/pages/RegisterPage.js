@@ -46,6 +46,16 @@ export default function RegisterPage() {
     const handleLogin = (event) => {
         event.preventDefault();
 
+
+        MySwal.fire({
+            type : 'error',
+            title : 'Registrando',
+            icon: 'info',
+            timer: 10000,
+            timerProgressBar: true,
+            showConfirmButton: false, 
+          });
+
         const data = {
             name: datos.name,
             email: datos.email,
@@ -165,6 +175,11 @@ export default function RegisterPage() {
 </div>
 
 </div>
+
+
+
+
+
 
 
 
