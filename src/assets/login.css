@@ -1,3 +1,33 @@
 .forgot {
     float: right;
 }
+
+input.form-control.form-control-lg {
+  
+    border-width: 0px 0px 1px 0px;
+    box-shadow: unset;
+    resize: none;
+}
+
+input.form-control.password {
+    border-width: 0px 0px 1px 0px;
+    box-shadow: unset;
+    resize: none;
+}
+
+
+input[type="date"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="url"],
+select,
+textarea,
+.woocommerce .quantity input.qty {
+    border-width: 0px 0px 1px 0px;
+    box-shadow: unset;
+    resize: none;
+}

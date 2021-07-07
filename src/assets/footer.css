@@ -1,0 +1,62 @@
+#Footer .footer_copy .copyright {
+    float: none;
+}
+
+.widgets_wrapper{
+    padding:20px 0;
+}
+
+
+.divcentrador1{
+    text-align:center;
+}
+
+.no_line .hr-custom1{
+    margin: 0 auto 50px;
+}
+
+.no_line hr-custom2{
+    margin: 0 auto 20px; 
+}
+
+
+.social{
+    display: inline-flex;
+}
+
+.facebook{
+    font-size: 30px;
+}
+
+.icon-facebook{
+    color:black;
+}
+
+
+
+
+
+.twitter{
+    font-size: 30px;
+}
+
+.icon-twitter{
+    color:black;
+}
+
+.instagram{
+    font-size: 30px;
+}
+
+.icon-instagram{
+    color:black;
+}
+
+
+
+.sitioLiw{
+
+    color:black;
+}
+
+

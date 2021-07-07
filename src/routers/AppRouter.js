@@ -23,7 +23,14 @@ import CategoriesRouter from "./CategoriesRouter";
 import AvisoRevisionPage from "../pages/AvisoRevisionPage";
 import AvisoEmailResetPage from "../pages/AvisoEmailResetPage";
 import AuthVerify from '../components/AuthVerify.component';
+import AprobarUsersPage from "../pages/AprobarUsersPage";
+import ObraDetails from "../pages/Obras/obraDetails.page";
 
+
+import Footer from "../components/Footer";
+
+
+import CreaObraPage from "../pages/Obras/crearObraPage";
 
 export default function AppRouter() {
 
@@ -53,10 +60,14 @@ export default function AppRouter() {
         <PublicRoute exact path="/login" component={LoginPage} />
         <PublicRoute exact path="/register" component={RegisterPage} />
 
+        <Route exact path="/obra/:id" component={ObraDetails} />
+
+
+        
         <PrivateRoute exact path="/dashboard" component={DashboardPage} />
-
+        <PrivateRoute exact path="/solicitudes" component={AprobarUsersPage} />
         <PrivateRoute exact path="/payments" component={PaymentsPage} />
-
+        <PrivateRoute exact path="/crearObra" component={CreaObraPage}/>
         <Route path="/404" component={NotFoundPage} />
       
         <Route path="*">
@@ -65,10 +76,13 @@ export default function AppRouter() {
 
         
       </Switch>
+
      <AuthVerify/>  
    
+   
+  <Footer/>
     </Router>
-
+  
 
 
 

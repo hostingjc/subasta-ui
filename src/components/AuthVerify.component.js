@@ -1,13 +1,17 @@
 import jwtDecode from "jwt-decode";
-import { Redirect, withRouter } from "react-router-dom";
-import useAuth from "../auth/useAuth";
+import { withRouter } from "react-router-dom";
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
 const MySwal = withReactContent(Swal);
 
 const AuthVerify = ({ history }) => {
+  
+  
+ 
   history.listen(() => {  // <--- Here you subscribe to the route change
+    /*
+   
     if (localStorage.getItem("token")) {
       const jwt_Token_decoded = jwtDecode(localStorage.getItem("token"));
       console.log(jwt_Token_decoded.exp * 1000);
@@ -42,7 +46,12 @@ const AuthVerify = ({ history }) => {
       } else {
         console.log('hola');
       }
+
+
+      
     }
+
+    */
   });
   return <div></div>;
 };

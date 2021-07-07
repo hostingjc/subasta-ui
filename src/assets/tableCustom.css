@@ -1,0 +1,16 @@
+.page-link {
+    position: relative;
+    display: initial;
+    color: #0d6efd;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+ .table_filter {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 50%;
+    width: 50%;
+}

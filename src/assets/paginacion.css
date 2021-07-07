@@ -1,0 +1,32 @@
+li.prev_page.disabled {
+    font-size: 30px;
+    color: #000000;
+}
+
+li.prev_page {
+    font-size: 30px;
+    color: #000000;
+}
+
+
+li.next_page {
+    font-size: 30px;
+    color: #000000;
+}
+
+li.anterior.disabled {
+    font-size: 20px;
+   
+}
+
+li.anterior {
+    font-size: 20px;
+}
+
+li.siguiente {
+    font-size: 20px;
+}
+
+
+
+

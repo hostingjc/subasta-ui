@@ -43,7 +43,7 @@ const AuthProvider = ({ children }) => {
       }
       ).catch(error => {
 
-        
+        console.log(error.response);
 
         if(error.response === undefined){
 
@@ -68,13 +68,13 @@ const AuthProvider = ({ children }) => {
             });
 
 
-       }else if(error.response.data.error.email || error.response.data.error.password){
+       }else if(error.response.data.email || error.response.data.password){
 
         MySwal.fire({
           type : 'error',
           title : <ul>
-          <li>{error.response.data.error.email}</li>
-          <li>{error.response.data.error.password}</li>
+          <li>{error.response.data.email}</li>
+          <li>{error.response.data.password}</li>
         </ul>,
           icon: 'error',
           timer: 3000,

@@ -1,0 +1,135 @@
+export default function AprobarUsersPage() {
+
+    const [users, setUsers] = useState([])
+    const [pageCount, setPageCount] = useState(1);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [completed, setCompleted] = useState(false);
+
+
+    function getQueryStringValue(key) {
+		const value = decodeURIComponent(
+			window.location.search.replace(
+				new RegExp(
+					'^(?:.*[&\\?]' +
+						encodeURIComponent(key).replace(/[\.\+\*]/g, '\\$&') +
+						'(?:\\=([^&]*))?)?.*$',
+					'i'
+				),
+				'$1'
+			)
+		);
+		return value ? value : null;
+	}
+   
+      useEffect(async () => {
+
+        const page = getQueryStringValue('page');
+		await Promise.resolve(
+			setCurrentPage(() => ({ currentPage: page ? page : 1 }))
+		);
+
+        traerDatos();
+     
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, []);
+
+      const traerDatos = async () => {
+
+            const url = '?page='+currentPage;
+
+        await serviceUser.useUsersPorAprobar(url).then(res => {
+            console.log(res.data)
+            console.log(res.data.current_page)
+            console.log(res.data.last_page)
+           // setUsers(res.data.data)
+
+           setCurrentPage(res.data.current_page)
+           setPageCount(res.data.last_page)
+        })
+
+      } 
+
+      const cambiarPagina = async(data) => {
+        const page = data.selected >= 0 ? data.selected + 1 : 0;
+	
+        await Promise.resolve(setCurrentPage(() => ({ currentPage: page })));
+
+		traerDatos(); 
+      } 
+
+
+    
+      const deleteUser = (id) => {
+        setUsers(users.filter((user) => user.id !== id))
+
+        serviceUser.useAprobar(id).then(
+            res => {
+                console.log(res.data)
+            
+            }
+        ).catch(error => {
+            console.log(error.response)
+        });
+
+
+
+      }
+
+
+    return (
+
+
+        <div>
+               
+            <SubHeader title={'Solicitudes'}/>
+
+
+
+
+            <div className="container pt-4">
+                <div className="row">
+  
+
+
+
+
+
+
+                <TablaUsers users={users} deleteUser={deleteUser} />
+
+                <ReactPaginate
+					pageCount={pageCount}
+					initialPage={currentPage - 1}
+					forcePage={currentPage - 1}
+					pageRangeDisplayed={4}
+					marginPagesDisplayed={2}
+					previousLabel="&#x276E;"
+					nextLabel="&#x276F;"
+					containerClassName="uk-pagination uk-flex-center"
+					activeClassName="uk-active"
+					disabledClassName="uk-disabled"
+					onPageChange={cambiarPagina}
+					disableInitialCallback={true}
+				/>
+
+
+
+
+
+                </div>
+       
+
+            </div>
+            
+       
+        </div>
+
+            
+
+
+
+
+
+
+    )
+}

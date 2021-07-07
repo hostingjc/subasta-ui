@@ -1,5 +1,14 @@
 .active {
- /*   background-color: crimson;
-    color: white;*/
+    color: #00ac2b;
 }
 
+
+
+#Top_bar .menu li.current-menu-item  a, #Top_bar .menu li.current_page_item  a, #Top_bar .menu  li.current-menu-parent  a, #Top_bar .menu > li.current-page-parent > a, #Top_bar .menu > li.current-menu-ancestor > a, #Top_bar .menu > li.current-page-ancestor > a, #Top_bar .menu > li.current_page_ancestor > a, #Top_bar .menu > li.hover > a {
+    color: #00ac2b;
+}
+
+
+.current_page_item{
+    color: #00ac2b;
+}

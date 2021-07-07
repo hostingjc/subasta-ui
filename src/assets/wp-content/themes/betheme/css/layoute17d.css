@@ -1499,7 +1499,7 @@ body.mobile-side-slide{position:relative;overflow-x:visible;}
 
 #Footer .footer_copy{border-top:1px solid rgba(255,255,255,.1)}
 #Footer .footer_copy .one{margin-bottom:20px;padding-top:30px;min-height:33px}
-#Footer .footer_copy .copyright{float:left}
+#Footer .footer_copy .copyright{float:none; text-align: center;}
 
 #Footer .footer_copy .social{float:right;margin-right:20px}
 #Footer .footer_copy .social li{display:inline-block;margin-right:6px}

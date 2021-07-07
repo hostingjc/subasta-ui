@@ -124,7 +124,7 @@ export default function RegisterPage() {
  
  
 
-  <form onSubmit={handleLogin} className="needs-validation" novalidate> 
+  <form onSubmit={handleLogin} > 
       
         
 

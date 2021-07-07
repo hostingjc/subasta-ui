@@ -43,6 +43,13 @@ export default function LoginPage() {
 
     const handleLogin = (event) => {
         event.preventDefault();
+      
+        const data = {
+            email: datos.email,
+            password: datos.password
+        }
+
+        auth.login(data);
 
         MySwal.fire({
             type : 'error',
@@ -53,16 +60,6 @@ export default function LoginPage() {
             showConfirmButton: false, 
           });
 
-
-        console.log('enviando datos...' + datos.email + ' ' + datos.password)
-        const data = {
-            email: datos.email,
-            password: datos.password
-        }
-
-   
-
-        auth.login(data);
         history.push(previusObjectURL || "/dashboard")
     }
 
@@ -71,8 +68,10 @@ export default function LoginPage() {
    
     return (
 
+<div id="Content">
+	<div className="content_wrapper clearfix"></div>
 
-        <div className="container mt-3">
+        <div className="container mt-3 my-3 py-5">
   <div className="row">
     <div className="col-4 offset-4 justify-content-md-center">
 
@@ -95,7 +94,7 @@ export default function LoginPage() {
 
          <div className="mb-3">
                <label>Password</label>
-               <input type="password" className="form-control" placeholder="Password"
+               <input type="password" className="form-control form-control-lg" placeholder="Password"
                onChange={ handleInputChange }  name="password"/>
          </div>
 
@@ -106,7 +105,7 @@ export default function LoginPage() {
 
        
 
-         <div class="forgot">
+         <div className="forgot">
          <p className="">
                     <NavLink to={'/forgot'}>Olvide Contraseña</NavLink>
          </p>
@@ -124,7 +123,7 @@ export default function LoginPage() {
 
 </div>
 
-      
+</div >
        
 
 

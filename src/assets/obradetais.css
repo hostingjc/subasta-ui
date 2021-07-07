@@ -1,0 +1,151 @@
+.fondo-custom{
+    padding-top: 0px;
+    padding-bottom: 0px; 
+    background-color:""; 
+    background-repeat:no-repeat;
+    /*background-image: url("https://i.ibb.co/0t5F41p/backggroud-adam.jpg");*/ 
+    background-position:center; 
+    background-attachment:fixed; 
+    background-size:cover; 
+    -webkit-background-size: cover;
+}
+
+.hr-custom{
+    margin: "0 auto 30px";
+
+}
+
+.section-custom{
+    padding-top:"50px"; 
+    padding-bottom:"0px"; 
+    background-color:"";
+}
+
+
+
+p.texto-descriptivo {
+  font-size: 25px;
+}
+
+
+
+
+input.valorObra {
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  font-size: 25px;
+  width: 200px;
+}
+
+
+button.btn.btn-primary.mb-3 {
+  background-color: green;
+  border-radius: 10px;
+  padding: 9px;
+}
+
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  
+    /* CSS */
+
+    .textoRelleno{
+        width: 1000px;
+        height: 1000px;
+        color: rgba(0,0,0, 0);
+    }
+    
+  }
+  
+  /* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+  */
+  
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    
+    /* CSS */
+
+    .textoRelleno{
+        width: 1000px;
+        height: 1000px;
+        color: rgba(0,0,0, 0);
+    }
+    
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+  */
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+    
+    /* CSS */
+
+    .textoRelleno{
+        width: 1000px;
+        height: 1000px;
+        color: rgba(0,0,0, 0);
+    }
+    
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+  */
+  
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    
+    /* CSS */
+
+    .textoRelleno{
+        width: 1000px;
+        height: 1000px;
+        color: rgba(0,0,0, 0);
+    }
+    
+  }
+  
+  /* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+  */
+  
+  @media (min-width: 481px) and (max-width: 767px) {
+    
+    /* CSS */
+
+
+    .textoRelleno{
+        width: 10px;
+        height: 1000px;
+        color: rgba(0,0,0, 0);
+    }
+    
+  }
+  
+  /* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    
+    /* CSS */
+
+    
+    .textoRelleno{
+        width: 10px;
+        height: 500px;
+        color: rgba(117, 117, 117, 0);
+    }
+    
+  }

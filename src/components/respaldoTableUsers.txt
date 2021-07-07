@@ -1,0 +1,147 @@
+import 'datatables.net-bs5'
+const $ = require("jquery");
+$.Datatable = require("datatables.net");
+
+
+export default class TablaUsers extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      users: [],
+      loading: true
+    };
+
+  }
+
+
+
+  //option 1
+  async getUsersData() {
+
+
+    await serviceUser.useUsersPorAprobar().then(
+        res => {
+            console.log(res.data);
+            this.setState({ loading: false, users: res.data });
+        }
+    )
+
+
+  }
+
+  //option 2
+  async getUsersData1() {
+    const res = await axios.get("https://jsonplaceholder.typicode.com/users");
+    return res.data;
+  }
+
+  acciones = () => {
+
+  }
+
+
+  componentDidMount() {
+    this.getUsersData().then(() => this.sync());
+  }
+
+
+
+  sync() {
+
+
+    this.$el = $(this.el);
+    this.$el.DataTable({
+      data: this.state.users, //option 1
+      // data: this.getUsersData1(), //option 2
+      columns: [
+        { title: "Name", data: "name" },
+        { title: "Email", data: "email" },
+        { title: "Action"  }
+      ],
+      columnDefs : [ {
+        targets : -1,
+        data: null,
+        defaultContent: "<button id='aprobar'>Aprobar</button>" 
+        + "<button id='eliminar'>Eliminar</button>"
+      } ]
+ 
+	});
+
+    var table =  $(this.el).DataTable();
+
+    table.on( 'click', '#aprobar', function () {
+        var data = table.row( $(this).parents('tr') ).data();
+    
+        alert(data['id']);
+
+     
+           
+        table.row($(this).parents('tr')).remove().draw();
+        aprobarRecord(data['id']);
+      
+      
+        $(this.el).dataTable().fnDestroy();
+      
+        // table.destroy();
+         //table.ajax.reload()
+        //table.row($(this).closest("tr").remove())
+       // table.ajax.reload()
+      //  $(this).closest("tr").remove();
+        //alert( data[0] +"'s salary is: "+ data[ 5 ] );
+    } );
+
+    table.on( 'click', '#eliminar', function () {
+        var data = table.row( $(this).parents('tr') ).data();
+        alert(data['id']);
+
+        deleteRecord(data['id']);
+        table.row($(this).closest("tr").remove().draw(false))
+
+
+        
+      //  $(this).closest("tr").remove();
+        //alert( data[0] +"'s salary is: "+ data[ 5 ] );
+    } );
+ 
+
+
+   const aprobarRecord = (id) => {
+
+
+        console.log("Aprobarrecord");
+      
+    
+        serviceUser.useAprobar(id).then(
+            res => {
+                console.log(res.data)
+             // this.setState({user: users.filter((user) => user.id !== id)})
+                this.$el.DataTable({data: this.state.users})
+         
+            }
+        ).catch(error => {
+            console.log(error.response)
+        });
+    
+    
+    }
+
+    const deleteRecord = (id) => {
+        console.log("Delete record");
+    }
+
+
+  }
+
+  render() {
+    return (
+      <table
+        className="display"
+        width="100%"
+        ref={(el) => (this.el = el)}
+      >
+      </table>
+
+
+    );
+  }
+}

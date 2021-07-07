@@ -1,8 +1,7 @@
 import SubHeader from "../components/SubHeader"
 import { useState } from 'react';
-import { NavLink } from "react-router-dom";
 import { useHistory, useLocation } from 'react-router-dom';
-import { useEffect } from "react";
+
 import serviceUser from "../services/user.service";
 //import { mytoast } from "../components/toast";
 
@@ -30,7 +29,7 @@ export default function ForgotPage(){
 
 
 
-    const [error, setError] = useState(null);
+   // const [error, setError] = useState(null);
 
    
 
@@ -126,7 +125,7 @@ export default function ForgotPage(){
     <div className="card">
   <div className="card-body">
 
-{error}
+
   <form onSubmit={handleForgot} >
             
                 
