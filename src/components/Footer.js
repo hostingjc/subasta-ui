@@ -36,7 +36,7 @@ export default function Footer(){
 <hr className="no_line hr-custom1"/>
 
 
-<img src ={logo_autismo} />
+<img src ={logo_autismo} alt={'logo_autismo'} />
 
 <hr className="no_line hr-custom2" />
 

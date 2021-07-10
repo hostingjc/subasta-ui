@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom"
 //import fondo from './../../assets/img/backggroud-adam.jpg'
 import ReactPlayer from 'react-player'
 import './../../assets/obradetais.css'
-import serviceObra from "../../services/obra.service"
-
+import serviceObra from "../../services/obra.service";
+import subasta from './../../assets/img/subasta-1.png'
 
 export default function ObraDetails(){
 
@@ -14,56 +14,58 @@ export default function ObraDetails(){
     const [detalles, setDetalles] = useState([]);
     const [datos, setDatos] = useState({
         valor: '',
-});
-
+    });
 
     const {id}= useParams();
-
-    const youtube = 'https://www.youtube.com/watch?v=';
+    const youtube = 'http://www.youtube.com/watch?v=';
     const RutaImagenInterna = 'http://subasta.com/img/winwardialeviosa/internas/'
 
 
+    const traerDatosObra = async() => {
 
-    useEffect(()=>{
-
-        
-
-        serviceObra.useObraPublica(id).then(res => {
-
-            console.log(res.data);
-            console.log('https://www.youtube.com/watch?v='+res.data[0].video);
-            
-            setDetalles(res.data);
-
-            
-
+        await serviceObra.useObraPublica(id).then(res => {
+           
+            setDetalles(res.data); 
             setDatos({valor: res.data[0].valor})
 
             if(res.data[0].video !== null){
-
                 mostrarVideo(res.data[0].video);
-
                 console.log(video);
-                //setVideo('https://www.youtube.com/watch?v='+res.data[0].video);  
             }
-            
-
 
         }).catch(err => {
-
             console.log(err.response);
-
         })
-        
-        
-            const mostrarVideo= (data) => {
+
+
+    }
+
+    useEffect(() => {
+
+      
+        serviceObra.useObraPublica(id).then(res => {
+           
+            setDetalles(res.data); 
+            setDatos({valor: res.data[0].valor})
+
+            if(res.data[0].video !== null){
+                mostrarVideo(res.data[0].video);
+                console.log(video);
+            }
+
+        }).catch(err => {
+            console.log(err.response);
+        })
+     
+    }, [id, video]);
+
+
+    const mostrarVideo= (data) => {
         setVideo(data);      
     }
 
-    },[id, video]);
 
     const handleInputChange = (event) => {
-
         setDatos({
             ...datos,
             [event.target.name] : event.target.value
@@ -79,6 +81,16 @@ export default function ObraDetails(){
             id: id,
             valor : datos.valor,
         }
+
+        serviceObra.enviarPuja(data).then(res => {
+            console.log(res.data);
+            traerDatosObra();
+        }).catch(err => {
+            console.log(err.response)
+        })
+
+        
+    
     }
 
     const checkMax = (object) => {
@@ -104,7 +116,7 @@ export default function ObraDetails(){
 {Object.keys(detalles).map((oKey, e) => (  
 
 
-<div className="section mcb-section full-screen bg-cover fondo-custom" style={{backgroundImage:`url(${RutaImagenInterna+detalles[oKey].imagen_interna})`}} 
+<div key={e} className="section mcb-section full-screen bg-cover fondo-custom" style={{backgroundImage:`url(${RutaImagenInterna+detalles[oKey].imagen_interna})`}} 
             >
       
     <div className="section_wrapper mcb-section-inner">
@@ -256,14 +268,16 @@ Ubicación: {detalles[oneKey].ubicacion}
 
 ))}
 
-{Object.keys(detalles).map((key, i) => (<p key={i}>
+
+
+
 
     <form onSubmit={handleSubmit} className="row g-3">
        
 
   <div className="col-auto">
-  <div class="input-icon">
-    <label for="inputPassword2" className="visually-hidden">Password</label>
+  <div className="input-icon">
+    <label  className="visually-hidden">Password</label>
     <input type="number" name="valor" step="any"  maxLength = "6" onInput={checkMax} max="999999" className="valorObra" value={datos.valor} onChange={handleInputChange}/>
     <i>$</i>
 
@@ -271,14 +285,15 @@ Ubicación: {detalles[oneKey].ubicacion}
   </div>
 
   <div className="col-auto">
-    <button type="submit" className="btn btn-primary mb-3">Pujar</button>
+    <button type="submit" className="btn btn-primary mb-3"><span className="pujar">PUJAR </span> <img className='martillo' src={subasta} alt={'puja'}/></button>
   </div>
 
     </form>
 
 
 
-</p>) )}
+
+
                    
                                 
 

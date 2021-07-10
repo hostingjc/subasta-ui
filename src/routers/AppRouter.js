@@ -25,7 +25,9 @@ import AvisoEmailResetPage from "../pages/AvisoEmailResetPage";
 import AuthVerify from '../components/AuthVerify.component';
 import AprobarUsersPage from "../pages/AprobarUsersPage";
 import ObraDetails from "../pages/Obras/obraDetails.page";
-
+import ListarObras from "../pages/Obras/mostrarObrasPage";
+import EditarObra from "../pages/Obras/editObraPage";
+import RestaurarObras from "../pages/Obras/restaurarObrasPage";
 
 import Footer from "../components/Footer";
 
@@ -40,34 +42,57 @@ export default function AppRouter() {
       <Navbar />
       <Switch >
 
-        <Route exact path="/about"  component={AboutPage} />
-        <Route exact path="/contact" component={ContactPage} />
         <Route exact path="/" component={HomePage} />
+        
 
-        <Route exact path="/profile/:username" component={ProfilePage} />
-
-        <Route path="/categories" component={CategoriesRouter} />
-
+        {/* Rutas de Autenticacion  */}
+        <PublicRoute exact path="/forgot" component={ForgotPage}/>
+        <PublicRoute exact path="/reset/:token" component={ResetPage}/>
+        <PublicRoute exact path="/email-reset" component={AvisoEmailResetPage} />
+        <PublicRoute exact path="/revision" component={AvisoRevisionPage} />
         <Route exact path="/signin">
           <Redirect to="/login" />
         </Route>
-
-      <PublicRoute exact path="/forgot" component={ForgotPage}/>
-      <PublicRoute exact path="/reset/:token" component={ResetPage}/>
-
-      <PublicRoute exact path="/email-reset" component={AvisoEmailResetPage} />
-      <PublicRoute exact path="/revision" component={AvisoRevisionPage} />
         <PublicRoute exact path="/login" component={LoginPage} />
         <PublicRoute exact path="/register" component={RegisterPage} />
+        {/*--------------------------------------- */}  
 
-        <Route exact path="/obra/:id" component={ObraDetails} />
 
 
+         {/* Rutas de Obra */} 
         
-        <PrivateRoute exact path="/dashboard" component={DashboardPage} />
-        <PrivateRoute exact path="/solicitudes" component={AprobarUsersPage} />
-        <PrivateRoute exact path="/payments" component={PaymentsPage} />
+        <Route exact path="/obra/:id" component={ObraDetails} />
         <PrivateRoute exact path="/crearObra" component={CreaObraPage}/>
+        <PrivateRoute exact path="/listarobras" component={ListarObras} />
+        <PrivateRoute exact path="/editarobra/:id" component={EditarObra} />
+        <PrivateRoute exact path="/restaurarobras" component={RestaurarObras} />
+
+
+         {/*--------------------------------------- */} 
+
+
+        {/* Rutas Gestion de Usuarios */}
+        <PrivateRoute exact path="/solicitudes" component={AprobarUsersPage} />
+        
+
+        {/* -------------------------------- */}
+
+
+        <Route exact path="/profile/:username" component={ProfilePage} />
+        <PrivateRoute exact path="/dashboard" component={DashboardPage} />
+        <PrivateRoute exact path="/payments" component={PaymentsPage} />
+        
+
+
+
+
+
+
+        <Route path="/categories" component={CategoriesRouter} />
+        <Route exact path="/about"  component={AboutPage} />
+        <Route exact path="/contact" component={ContactPage} />
+
+
         <Route path="/404" component={NotFoundPage} />
       
         <Route path="*">

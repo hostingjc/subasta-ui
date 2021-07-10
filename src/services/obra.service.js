@@ -7,6 +7,10 @@ const useCreate = async (data) =>{
     return await axios.post('obras', data, {headers: { 'Authorization' : 'Bearer '+ localStorage.getItem('token')}});
 }
 
+const enviarPuja = async (data) => {
+    return await axios.post('puja', data, {headers: { 'Authorization' : 'Bearer '+ localStorage.getItem('token')}})
+}
+
 const useCatalogo = async (url) => {
     return await axios.get('catalogo'+url);
 }
@@ -21,6 +25,7 @@ const useObraPublica = async (data) => {
 serviceObra.useCreate = useCreate;
 serviceObra.useCatalogo = useCatalogo;
 serviceObra.useObraPublica = useObraPublica;
+serviceObra.enviarPuja = enviarPuja;
 
 
 export default serviceObra;

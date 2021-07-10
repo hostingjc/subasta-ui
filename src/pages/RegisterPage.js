@@ -147,13 +147,13 @@ export default function RegisterPage() {
 
          <div className="mb-3">
                <label>Password</label>
-               <input type="password" className="form-control" placeholder="Password"
+               <input type="password" className="form-control form-control-lg" placeholder="Password"
                onChange={ handleInputChange }  name="password"/>
          </div>
 
          <div className="mb-3">
                <label>Confirmar Password</label>
-               <input type="password" className="form-control" placeholder="Password"
+               <input type="password" className="form-control form-control-lg" placeholder="Password"
                onChange={ handleInputChange }  name="confirm_password"/>
          </div>
 

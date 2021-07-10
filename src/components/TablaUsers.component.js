@@ -4,18 +4,14 @@
 //import DataTable from "react-data-table-component";
 //import { useEffect, useState } from "react";
 
-import { useState } from "react";
+//import { useState } from "react";
 
 
 export default function TablaUsers(props){
      
     console.log(props.users.data);
-
-    //const [usuarios, getUsuarios] = useState(props.users);
-
-
+    
     return(
-
 
           <table>
     <thead>

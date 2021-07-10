@@ -1,9 +1,9 @@
-import jwtDecode from "jwt-decode";
+//import jwtDecode from "jwt-decode";
 import { withRouter } from "react-router-dom";
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
+//import Swal from 'sweetalert2'
+//import withReactContent from 'sweetalert2-react-content'
 
-const MySwal = withReactContent(Swal);
+//const MySwal = withReactContent(Swal);
 
 const AuthVerify = ({ history }) => {
   

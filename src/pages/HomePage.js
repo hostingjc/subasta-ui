@@ -93,7 +93,7 @@ export default function HomePage() {
 						
 
 
-                        <div class="grid">
+                        <div className="grid">
 
                          
                             
@@ -103,12 +103,12 @@ export default function HomePage() {
             Object.keys(obras).map((oneKey,i)=>{
               return (
 
-                <NavLink  key={i} exact to={'/obra/'+ obras[oneKey].id} rel="noopener noreferrer" class="galleryItem" >
+                <NavLink  key={i} exact to={'/obra/'+ obras[oneKey].id} rel="noopener noreferrer" className="galleryItem" >
                          
 
                   
-  <div class="grid__item zoom">
-      <img className="img-fluid" src={RutaImagenDestacada+obras[oneKey].imagen_destacada}/>
+  <div className="grid__item zoom">
+      <img className="img-fluid" src={RutaImagenDestacada+obras[oneKey].imagen_destacada} alt={obras[oneKey].titulo}/>
       </div>
 
 
@@ -130,8 +130,8 @@ export default function HomePage() {
 </div>
 
 <div className="column one pager_wrapper" >
-                    <div class="pager">
-                    <div class="pages">
+                    <div className="pager">
+                    <div className="pages">
                                 <Pagination
                                     activePage={page.current_page.current_page ? page.current_page.current_page : 0}
                                     itemsCountPerPage={page.per_page.per_page ? page.per_page.per_page : 0 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useState } from "react"
 import serviceUser from "../services/user.service"
 import SubHeader from "../components/SubHeader"
 //import TablePorAprobar from './../components/table.usersPorAprobar.component';
@@ -43,12 +43,12 @@ export default function AprobarUsersPage() {
       } 
 
    
-      useEffect(async () => {
+      useEffect(() => {
 
       
         traerDatos();
      
-      }, []);
+      }, [users,page]);
 
    
 
@@ -86,11 +86,18 @@ export default function AprobarUsersPage() {
 
 
             <div className="container pt-4 py-4">
+
+            <div className="container-fluid">
+
                 <div className="row">
   
 
+                    <div className="col-10 offset-1">
+                    <TablaUsers users={users} deleteUser={deleteUser} />
+                    </div>
 
-                <TablaUsers users={users} deleteUser={deleteUser} />
+
+                
 
 
                <div className="column one pager_wrapper" >
@@ -122,6 +129,10 @@ export default function AprobarUsersPage() {
                            </div>
                            
                     </div>
+
+
+
+                </div>
 
 
 

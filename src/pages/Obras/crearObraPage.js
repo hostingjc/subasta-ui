@@ -157,7 +157,7 @@ import serviceObra from '../../services/obra.service';
 
          <div className="mb-3">
                <label>Valor</label>
-               <input type="number" className="form-control" placeholder="Valor Inicial de la Obra" min="1" step="any"
+               <input type="number" className="form-control form-control-lg" placeholder="Valor Inicial de la Obra" min="1" step="any"
                onChange={ handleInputChange }  name="valor"/>
          </div>
 

@@ -1,0 +1,44 @@
+
+
+const TableObras = (props) => {
+
+    
+
+    return(<table>
+
+        <thead>
+            <tr>
+            <th>Titulo</th>
+            <th>Autor</th>
+            <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {props.obras.length > 0 ? (
+                props.obras.map((obra) => (
+            <tr key={obra.id} >
+                <td>{obra.titulo}</td>
+                <td>{obra.autor}</td>
+                <td>
+                  <button onClick={() => props.redirigir(obra.id)}>Editar</button>
+                  <button onClick={(e) => {console.log('hola')}}>Eliminar</button>
+                </td>
+            </tr>
+                )
+            )) : (
+                <tr>
+                <td colSpan={3}> No hay Obras</td>
+                </tr>  
+            )
+            }
+        </tbody>
+
+
+    </table>);
+
+
+}  
+
+export default TableObras;

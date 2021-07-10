@@ -9,11 +9,6 @@ input.form-control.form-control-lg {
     resize: none;
 }
 
-input.form-control.password {
-    border-width: 0px 0px 1px 0px;
-    box-shadow: unset;
-    resize: none;
-}
 
 
 input[type="date"],
@@ -31,3 +26,4 @@ textarea,
     box-shadow: unset;
     resize: none;
 }
+
