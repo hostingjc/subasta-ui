@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react"
-import serviceUser from "../services/user.service"
-import SubHeader from "../components/SubHeader"
+import serviceUser from "../../services/user.service"
+import SubHeader from "../../components/SubHeader"
 //import TablePorAprobar from './../components/table.usersPorAprobar.component';
-import TablaUsers from "../components/TablaUsers.component";
+import TablaUsers from "../../components/TablaUsers.component";
 //import TableUsersRevision from "../components/TabletUsersRevision.component"
-import './../assets/table.css';
+import './../../assets/table.css';
 import Pagination from "react-js-pagination";
-import './../assets/paginacion.css'
+import './../../assets/paginacion.css'
+
 
 export default function AprobarUsersPage() {
 
@@ -48,17 +49,38 @@ export default function AprobarUsersPage() {
       
         traerDatos();
      
-      }, [users,page]);
+      },[]);
 
    
+      const aprobarUser = async (id) => {
+          console.log(id);  
+          setUsers(users.filter((user) => user.id !== id))
 
+        await serviceUser.useAprobar(id).then(
+            res => {
+                console.log(res.data)
+                traerDatos();
+            }
+        ).catch(error => {
+            console.log(error.response)
+        });
+
+
+      }
 
     
-      const deleteUser = (id) => {
+      const deleteUser = async (id) => {
 
         console.log(id);
 
         setUsers(users.filter((user) => user.id !== id))
+
+        await serviceUser.useDesaprobar(id).then(res => {
+            console.log(res)
+            traerDatos();
+        }).catch(err => {
+              console.log(err.response);  
+        });
 
         /*
         serviceUser.useAprobar(id).then(
@@ -93,7 +115,7 @@ export default function AprobarUsersPage() {
   
 
                     <div className="col-10 offset-1">
-                    <TablaUsers users={users} deleteUser={deleteUser} />
+                    <TablaUsers users={users} aprobarUser={aprobarUser} deleteUser={deleteUser} />
                     </div>
 
 
@@ -101,8 +123,8 @@ export default function AprobarUsersPage() {
 
 
                <div className="column one pager_wrapper" >
-                    <div class="pager">
-                    <div class="pages">
+                    <div className="pager">
+                    <div className="pages">
                                 <Pagination
                                     activePage={page.current_page.current_page ? page.current_page.current_page : 0}
                                     itemsCountPerPage={page.per_page.per_page ? page.per_page.per_page : 0 }

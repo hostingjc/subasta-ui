@@ -22,17 +22,17 @@ const useAprobar = async(data) => {
    const id = data;
    
    return await axios.put('user/aprobar/' + id, {headers: { 'Authorization' : 'Bearer '+ localStorage.getItem('token')}});
-
-
-
-
 }
 
+const useDesaprobar = async(id) => {
+   return await axios.put('user/desaprobar/'+id, {headers: { 'Authorization' : 'Bearer '+ localStorage.getItem('token')}})
+}
 
 ServiceUser.useRegister = useRegister;
 ServiceUser.useForgot = useForgot;
 ServiceUser.useReset = useReset;
 ServiceUser.useUsersPorAprobar = useUsersPorAprobar;
 ServiceUser.useAprobar = useAprobar;
+ServiceUser.useDesaprobar = useDesaprobar;
 
 export default ServiceUser;

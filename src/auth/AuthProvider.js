@@ -108,6 +108,9 @@ const AuthProvider = ({ children }) => {
     isLogged() {
       return !!user;
     },
+    showUser(){
+      return user;
+    },
     verifyAuth(){
       
       if(localStorage.getItem('token')){

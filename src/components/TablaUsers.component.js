@@ -9,7 +9,7 @@
 
 export default function TablaUsers(props){
      
-    console.log(props.users.data);
+   
     
     return(
 
@@ -33,8 +33,8 @@ export default function TablaUsers(props){
 
 
         <td>
-        <button className="button muted-button"   onClick={() => props.deleteUser(user.id)} >Aprobar</button>
-          <button className="button muted-button" >Eliminar</button>
+        <button className="button muted-button"   onClick={() => props.aprobarUser(user.id)} >Aprobar</button>
+          <button className="button muted-button" onClick={() => props.deleteUser(user.id)}>Desaprobar</button>
          
         </td>
       </tr>

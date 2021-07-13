@@ -21,6 +21,17 @@ const ListarObras = () => {
         history.push('/editarobra/'+ id);
     }
 
+    const eliminar = async (id) => {
+        console.log(id);
+        await serviceObra.useDeleteObra(id).then(res => {
+            console.log(res)
+            traerObras();
+        }).catch(err => {
+            console.log(err.response);
+        })
+
+       
+    }
 
     useEffect(() => {
         traerObras();
@@ -54,7 +65,7 @@ const ListarObras = () => {
 
                     <div className="col-10 offset-1">
 
-                      <TableObras obras={obras} redirigir={redirigir} />
+                      <TableObras obras={obras} redirigir={redirigir} eliminar={eliminar} />
 
                     </div>
 

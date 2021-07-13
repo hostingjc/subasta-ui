@@ -23,11 +23,13 @@ import CategoriesRouter from "./CategoriesRouter";
 import AvisoRevisionPage from "../pages/AvisoRevisionPage";
 import AvisoEmailResetPage from "../pages/AvisoEmailResetPage";
 import AuthVerify from '../components/AuthVerify.component';
-import AprobarUsersPage from "../pages/AprobarUsersPage";
+import AprobarUsersPage from "../pages/Users/AprobarUsersPage";
 import ObraDetails from "../pages/Obras/obraDetails.page";
 import ListarObras from "../pages/Obras/mostrarObrasPage";
 import EditarObra from "../pages/Obras/editObraPage";
 import RestaurarObras from "../pages/Obras/restaurarObrasPage";
+import GestionarUsuarios from "../pages/Users/GestionarUsuariosPage";
+import RestaurarUsuarios from "../pages/Users/RestaurarUsuariosPage";
 
 import Footer from "../components/Footer";
 
@@ -73,7 +75,8 @@ export default function AppRouter() {
 
         {/* Rutas Gestion de Usuarios */}
         <PrivateRoute exact path="/solicitudes" component={AprobarUsersPage} />
-        
+        <PrivateRoute exact path="/eliminarusuarios" component={GestionarUsuarios}/>
+        <PrivateRoute exact path="/restaurarusuarios" component={RestaurarUsuarios}/>
 
         {/* -------------------------------- */}
 

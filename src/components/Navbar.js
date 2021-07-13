@@ -116,18 +116,38 @@ export default function Navbar() {
 
 </li>  
 
+<li id="menu-item-769"  className="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-39  last-item">
+
+<NavLink exact to='/listarobras' activeClassName="current_page_item">
+     <span>Gestionar Obras</span>
+ </NavLink>
+
+</li>  
+
+<li id="menu-item-769"  className="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-39  last-item">
+
+<NavLink exact to='/restaurarobras' activeClassName="current_page_item">
+     <span>Restaurar Obras</span>
+ </NavLink>
+
+</li>  
+
+
+
 </ul>
 
 <span className="menu-toggle"></span>
 </li>   
-                   
+
+
+
  <li id="menu-item-96" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children  submenu">
              
              
  {auth.isLogged() && (
             <>   
               <NavLink exact to="/dashboard" activeClassName="current_page_item">
-              <span>Dashboard</span> 
+              <span>Usuarios</span> 
 
                       
                 
@@ -148,16 +168,23 @@ export default function Navbar() {
 <li id="menu-item-769"  className="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-39  last-item">
 
 <NavLink exact to='/solicitudes' activeClassName="current_page_item">
-     <span>solicitudes</span>
+     <span>Solicitudes</span>
  </NavLink>
 
 </li>
 
+<li id="menu-item-769"  className="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-39  last-item">
+
+<NavLink exact to='/eliminarusuarios' activeClassName="current_page_item">
+     <span>Eliminar Usuarios</span>
+ </NavLink>
+
+</li>
 
 <li id="menu-item-769"  className="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-39  last-item">
 
-<NavLink exact to='/payments' activeClassName="current_page_item">
-     <span>payments</span>
+<NavLink exact to='/restaurarusuarios' activeClassName="current_page_item">
+     <span>Restaurar Usuarios</span>
  </NavLink>
 
 </li>
@@ -189,8 +216,8 @@ export default function Navbar() {
 
     
             <li id="menu-item-99" className="menu-item menu-item-type-post_type menu-item-object-page">
-              <NavLink exact to="/payments" activeClassName="current_page_item">
-              <span>Payments</span> 
+              <NavLink exact to="/dashboard" activeClassName="current_page_item">
+              <span>{auth.showUser().name}</span> 
               </NavLink>
             </li>
             <li id="menu-item-98" className="menu-item menu-item-type-post_type menu-item-object-page">
