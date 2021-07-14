@@ -103,7 +103,7 @@ export default function HomePage() {
             Object.keys(obras).map((oneKey,i)=>{
               return (
 
-                <NavLink  key={i} exact to={'/obra/'+ obras[oneKey].id} rel="noopener noreferrer" className="galleryItem" >
+                <NavLink  key={i} exact to={'/obra/'+ obras[oneKey].slug} rel="noopener noreferrer" className="galleryItem" >
                          
 
                   

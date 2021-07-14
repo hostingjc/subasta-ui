@@ -15,21 +15,23 @@ export default function ObraDetails(){
     const [datos, setDatos] = useState({
         valor: '',
     });
+    const [id, setId] = useState('');
 
-    const {id}= useParams();
+    const {slug}= useParams();
     const youtube = 'http://www.youtube.com/watch?v=';
     const RutaImagenInterna = 'http://subasta.com/img/winwardialeviosa/internas/'
 
 
     const traerDatosObra = async() => {
 
-        await serviceObra.useObraPublica(id).then(res => {
+        await serviceObra.useObraPublica(slug).then(res => {
            
             setDetalles(res.data); 
             setDatos({valor: res.data[0].valor})
 
             if(res.data[0].video !== null){
                 mostrarVideo(res.data[0].video);
+                setId(res.data[0].id);
                 console.log(video);
             }
 
@@ -43,13 +45,14 @@ export default function ObraDetails(){
     useEffect(() => {
 
       
-        serviceObra.useObraPublica(id).then(res => {
+        serviceObra.useObraPublica(slug).then(res => {
            
             setDetalles(res.data); 
             setDatos({valor: res.data[0].valor})
 
             if(res.data[0].video !== null){
                 mostrarVideo(res.data[0].video);
+                setId(res.data[0].id);
                 console.log(video);
             }
 
@@ -57,7 +60,7 @@ export default function ObraDetails(){
             console.log(err.response);
         })
      
-    }, [id, video]);
+    }, [slug, video]);
 
 
     const mostrarVideo= (data) => {

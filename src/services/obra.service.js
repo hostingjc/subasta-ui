@@ -23,9 +23,9 @@ const useCatalogo = async (url) => {
     return await axios.get('catalogo'+url);
 }
 
-const useObraPublica = async (data) => {
-    const id = data;
-    return await axios.get('obrapublica/' + id)
+const useObraPublica = async (slug) => {
+    
+    return await axios.get('obrapublica/' + slug)
 }
 
 
