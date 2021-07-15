@@ -22,9 +22,9 @@ const TableObras = (props) => {
                 <td>{obra.titulo}</td>
                 <td>{obra.autor}</td>
                 <td>
-                  <button onClick={() => props.redirigir(obra.id)}>Editar</button>
+                  <button onClick={() => props.redirigir(obra.slug)}>Editar</button>
                   <button onClick={(e) => props.eliminar(obra.id)}>Eliminar</button>
-                </td>
+                </td>b
             </tr>
                 )
             )) : (

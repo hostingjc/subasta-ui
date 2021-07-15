@@ -10,7 +10,9 @@ import Pagination from "react-js-pagination";
 export default function HomePage() {
 
     const [obras, setObras] = useState([]);
-    const RutaImagenDestacada = 'http://subasta.com/img/winwardialeviosa/destacadas/';
+    //const RutaImagenDestacada = 'http://subasta.com/img/winwardialeviosa/destacadas/';
+    const RutaImagenDestacada = 'http://juandiaz.co.ve/img/winwardialeviosa/destacadas/';
+    
     const [page, setPage] = useState({
         totalItems: '',
         current_page: '',

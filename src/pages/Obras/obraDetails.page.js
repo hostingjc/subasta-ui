@@ -19,8 +19,8 @@ export default function ObraDetails(){
 
     const {slug}= useParams();
     const youtube = 'http://www.youtube.com/watch?v=';
-    const RutaImagenInterna = 'http://subasta.com/img/winwardialeviosa/internas/'
-
+    //const RutaImagenInterna = 'http://subasta.com/img/winwardialeviosa/internas/'
+    const RutaImagenInterna = 'http://store.juandiaz.co.ve/img/winwardialeviosa/internas/'
 
     const traerDatosObra = async() => {
 

@@ -17,8 +17,8 @@ const ListarObras = () => {
     })
     const history = useHistory();
 
-    const redirigir = (id) => {
-        history.push('/editarobra/'+ id);
+    const redirigir = (slug) => {
+        history.push('/editarobra/'+ slug);
     }
 
     const eliminar = async (id) => {

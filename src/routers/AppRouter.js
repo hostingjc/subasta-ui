@@ -66,7 +66,7 @@ export default function AppRouter() {
         <Route exact path="/obra/:slug" component={ObraDetails} />
         <PrivateRoute exact path="/crearObra" component={CreaObraPage}/>
         <PrivateRoute exact path="/listarobras" component={ListarObras} />
-        <PrivateRoute exact path="/editarobra/:id" component={EditarObra} />
+        <PrivateRoute exact path="/editarobra/:slug" component={EditarObra} />
         <PrivateRoute exact path="/restaurarobras" component={RestaurarObras} />
 
 

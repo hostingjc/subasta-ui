@@ -28,6 +28,10 @@ const useObraPublica = async (slug) => {
     return await axios.get('obrapublica/' + slug)
 }
 
+const useEditObra = async(id, data) => {
+    return await axios.put('obras/'+id, data,{headers: { 'Authorization' : 'Bearer '+ localStorage.getItem('token')}});
+}
+
 
 
 serviceObra.useCreate = useCreate;
@@ -36,5 +40,7 @@ serviceObra.useObraPublica = useObraPublica;
 serviceObra.enviarPuja = enviarPuja;
 serviceObra.useObrasEliminadas = useObrasEliminadas;
 serviceObra.useDeleteObra = useDeleteObra;
+serviceObra.useEditObra = useEditObra;
+
 
 export default serviceObra;
