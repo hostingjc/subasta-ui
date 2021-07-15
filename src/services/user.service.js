@@ -32,7 +32,7 @@ const useUsersPorAprobar = async(url) => {
 const useAprobar = async(data) => {
    const id = data;
    
-   return await axios.put('user/aprobar/' + id);
+   return await axios.put('user/aprobar/' + id, id, {headers: { 'Authorization' : 'Bearer '+ localStorage.getItem('token')}});
 }
 
 const useDesaprobar = async(id) => {
