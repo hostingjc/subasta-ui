@@ -2697,7 +2697,7 @@ background-color: #0036c1;
     transform: translate(100%, -50%);
     top: 50%;
     pointer-events: none;
-    width: 25px;
+    width: 15px;
     
       font-style: normal;
       color: green;
@@ -2714,7 +2714,7 @@ background-color: #0036c1;
     font-size: 23px;
 }
 input.valorObra {
-    padding-left: 10px;
+    padding-left: 35px;
     padding-right: 20px;
     padding-top: 25px;
     padding-bottom: 25px;

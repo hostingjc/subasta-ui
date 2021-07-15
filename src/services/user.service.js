@@ -36,7 +36,7 @@ const useAprobar = async(data) => {
 }
 
 const useDesaprobar = async(id) => {
-   return await axios.put('user/desaprobar/'+id)
+   return await axios.put('user/desaprobar/'+id, id, {headers: { 'Authorization' : 'Bearer '+ localStorage.getItem('token')}})
 }
 
 ServiceUser.useRegister = useRegister;
