@@ -9,7 +9,8 @@ const instance = axios.create({
  });
  
  // Alter defaults after instance has been created
- instance.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');;
+ instance.defaults.headers.post['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+ instance.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
  
 
 const useRegister = (data) =>{  
@@ -31,11 +32,11 @@ const useUsersPorAprobar = async(url) => {
 const useAprobar = async(data) => {
    const id = data;
    
-   return await axios.put('user/aprobar/' + id, {headers: { 'Authorization' : 'Bearer '+ localStorage.getItem('token')}});
+   return await axios.put('user/aprobar/' + id);
 }
 
 const useDesaprobar = async(id) => {
-   return await axios.put('user/desaprobar/'+id, {headers: { 'Authorization' : 'Bearer '+ localStorage.getItem('token')}})
+   return await axios.put('user/desaprobar/'+id)
 }
 
 ServiceUser.useRegister = useRegister;
