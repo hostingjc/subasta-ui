@@ -8,6 +8,14 @@ import withReactContent from 'sweetalert2-react-content'
 const MySwal = withReactContent(Swal);
 
 
+// Set config defaults when creating the instance
+const instance = axios.create({
+  baseURL: 'http://store.juandiaz.co.ve/api/'
+});
+
+// Alter defaults after instance has been created
+instance.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');;
+
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {

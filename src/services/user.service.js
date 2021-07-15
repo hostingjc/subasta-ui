@@ -2,6 +2,16 @@ import axios from "axios";
 
 const ServiceUser = {};
 
+
+// Set config defaults when creating the instance
+const instance = axios.create({
+   baseURL: 'http://store.juandiaz.co.ve/api/'
+ });
+ 
+ // Alter defaults after instance has been created
+ instance.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');;
+ 
+
 const useRegister = (data) =>{  
    return axios.post('register', data);
 }
