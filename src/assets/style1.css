@@ -2726,5 +2726,39 @@ input.valorObra {
     border-width: 1px, 1px, 1px, 1px;
 }
 
+
+ .fondo-custom{
+    padding-top: 0px;
+    padding-bottom: 0px; 
+    background-color:""; 
+    background-repeat:no-repeat;
+    /*background-image: url("https://i.ibb.co/0t5F41p/backggroud-adam.jpg");*/ 
+    background-position:center; 
+    background-attachment:fixed; 
+    background-size:cover; 
+    -webkit-background-size: cover;
+}
   
-   
+
+.hr-custom{
+    margin: "0 auto 30px";
+
+}
+
+.section-custom{
+    padding-top:"50px"; 
+    padding-bottom:"0px"; 
+    background-color:"";
+}
+
+
+
+p.texto-descriptivo {
+  font-size: 25px;
+}
+
+@media (prefers-reduced-motion: no-preference){
+    :root {
+        scroll-behavior: auto;
+    }
+}

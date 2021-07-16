@@ -119,11 +119,11 @@ export default function ObraDetails(){
 {Object.keys(detalles).map((oKey, e) => (  
 
 
-<div key={e} className="section mcb-section full-screen bg-cover fondo-custom" style={{backgroundImage:`url(${RutaImagenInterna+detalles[oKey].imagen_interna})`}} 
+<div key={e} className="section mcb-section full-screen bg-cover fondo-custom" style={{backgroundImage:`url(${RutaImagenInterna+detalles[oKey].imagen_interna})`, backgroundAttachment: "fixed"}} 
             >
       
     <div className="section_wrapper mcb-section-inner">
-            <p className="textoRelleno"  >fffff</p>
+    <p className="textoRelleno"  >fffff</p>
         </div>
 
 

@@ -15,6 +15,10 @@
 
 }
 
+:root {
+  scroll-behavior: auto;
+}
+
 .section-custom{
     padding-top:"50px"; 
     padding-bottom:"0px"; 
